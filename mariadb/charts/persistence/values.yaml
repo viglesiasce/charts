@@ -1,0 +1,17 @@
+## Enable persistence using Persistent Volume Claims
+## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+##
+enabled: false
+
+## Storage class for Persistent Volume Provisioning
+## ref: https://github.com/kubernetes/kubernetes/tree/master/examples/experimental/persistent-volume-provisioning
+##
+storageClass: generic
+
+## Access mode: one of ReadWriteOnce, ReadOnlyMany, or ReadWriteMany
+## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/#access-modes-1
+# accessMode:
+
+## Size of volume required
+##
+# size:
