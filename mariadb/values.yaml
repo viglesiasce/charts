@@ -27,8 +27,7 @@ imageTag: 10.1.14-r3
 # mariadbDatabase:
 
 ## Persist data to a persitent disk
-usePersistence: false
-dataVolume:
-  storageClass: generic
+persistence:
+  enabled: false
   accessMode: ReadWriteOnce
   size: 8Gi
