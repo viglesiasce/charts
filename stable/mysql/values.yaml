@@ -14,7 +14,6 @@ imageTag: "5.7.14"
 # mysqlPassword:
 
 ## Allow unauthenticated access, uncomment to enable
-##
 # mysqlAllowEmptyPassword: true
 
 ## Create a database
