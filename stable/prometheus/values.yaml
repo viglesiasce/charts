@@ -1,6 +1,5 @@
 alertmanager:
   ## Alertmanager service port
-  ##
   httpPort: 80
 
   ## Alertmanager service port name
