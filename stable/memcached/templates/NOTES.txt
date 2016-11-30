@@ -1,4 +1,4 @@
-Memcached can be accessed via port 11211 on the following DNS name from within your cluster:
+Memcached can be accessed via port 11211 on the following DNS2 234 name from within your cluster:
 {{ template "fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
 
 If you'd like to test your instance, forward the port locally:
