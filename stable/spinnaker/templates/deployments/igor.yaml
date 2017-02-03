@@ -13,6 +13,7 @@ spec:
         app: {{ template "fullname" . }}
         component: igor
       annotations:
+        checksum/config: {{ include (print $.Chart.Name "/templates/configmap/spinnaker-config.yaml") . | sha256sum }}
         pod.alpha.kubernetes.io/init-containers: '[
               {
                   "name": "copy-default-config",

@@ -12,6 +12,8 @@ spec:
       labels:
         app: {{ template "fullname" . }}
         component: deck
+      annotations:
+        checksum/config: {{ include (print $.Chart.Name "/templates/configmap/spinnaker-config.yaml") . | sha256sum }}
     spec:
       containers:
         - image: {{ .Values.images.deck }}

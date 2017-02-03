@@ -46,8 +46,9 @@ window.spinnakerSettings = {
     fastProperty: false,
     vpcMigrator: false,
     clusterDiff: false,
-    roscoMode: false,
+    roscoMode: true,
     netflixMode: false,
+    dockerBake: true,
     infrastructureStages: true, // Should 'createLoadBalancer' be a pipeline stage? (no).
   },
 };
