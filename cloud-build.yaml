@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  id: build
+  args: ['build', '-t', 'gcr.io/vic-goog/jenkins-master:latest', 'stable/jenkins/master-image']
+images: ['gcr.io/vic-goog/jenkins-master:latest']
