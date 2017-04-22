@@ -2,4 +2,5 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   id: build
   entrypoint: 'bash'
-  args: ['-xe', '-c', 'docker build -t gcr.io/vic-goog/jenkins-master:`echo 3.2.1` stable/jenkins/master-image && docker push gcr.io/vic-goog/jenkins-master:`echo 3.2.1`']
+  args: ['-xe', '-c',
+         'docker build -t gcr.io/vic-goog/jenkins-master:`cat stable/jenkins/master-image/VERSION` stable/jenkins/master-image && docker push gcr.io/vic-goog/jenkins-master:`cat stable/jenkins/master-image/VERSION`']
