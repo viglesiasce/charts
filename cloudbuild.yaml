@@ -1,7 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   id: build
-  env:
-  - "VERSION=0.3.2"
-  args: ['build', '-t', 'gcr.io/vic-goog/jenkins-master:$VERSION', 'stable/jenkins/master-image']
-images: ['gcr.io/vic-goog/jenkins-master:$VERSION']
+  entrypoint: 'bash'
+  args: ['-c', 'VERSION=`echo 3.2.1` build -t gcr.io/vic-goog/jenkins-master:$VERSION stable/jenkins/master-image && gcr.io/vic-goog/jenkins-master:$VERSION']
