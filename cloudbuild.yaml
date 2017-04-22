@@ -1,5 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   id: build
-  args: ['build', '-t', 'gcr.io/vic-goog/jenkins-master:$COMMIT_SHA', 'stable/jenkins/master-image']
-images: ['gcr.io/vic-goog/jenkins-master:$COMMIT_SHA']
+  env:
+  - "VERSION=0.3.2"
+  args: ['build', '-t', 'gcr.io/vic-goog/jenkins-master:$VERSION', 'stable/jenkins/master-image']
+images: ['gcr.io/vic-goog/jenkins-master:$VERSION']
