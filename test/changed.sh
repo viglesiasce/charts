@@ -18,7 +18,7 @@ set -o nounset
 set -o pipefail
 set -o xtrace
 
-git fetch --tags https://github.com/kubernetes/charts master
+git fetch --tags https://github.com/viglesiasce/charts master
 
 NAMESPACE="pr-${PULL_NUMBER}-${BUILD_NUMBER}"
 CHANGED_FOLDERS=`git diff --find-renames --name-only FETCH_HEAD stable/ incubator/ | awk -F/ '{print $1"/"$2}' | uniq`
