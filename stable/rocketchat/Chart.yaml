@@ -1,6 +1,8 @@
 name: rocketchat
-version: 0.0.1
-description: Prepare to take off with the ultimate chat platform, experience the next level of team communications
+version: 0.1.3
+appVersion: 0.56
+description: Prepare to take off with the ultimate chat platform, experience the next
+  level of team communications
 keywords:
 - chat
 - communication

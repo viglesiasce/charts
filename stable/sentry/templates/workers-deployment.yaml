@@ -16,6 +16,18 @@ spec:
         release: "{{ .Release.Name }}"
         role: worker
     spec:
+      {{- if .Values.worker.affinity }}
+      affinity:
+{{ toYaml .Values.worker.affinity | indent 8 }}
+      {{- end }}
+      {{- if .Values.worker.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.worker.nodeSelector | indent 8 }}
+      {{- end }}
+      {{- if .Values.worker.tolerations }}
+      tolerations:
+{{ toYaml .Values.worker.tolerations | indent 8 }}
+      {{- end }}
       containers:
       - name: {{ .Chart.Name }}-workers
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -39,8 +51,8 @@ spec:
               name: {{ template "postgresql.fullname" . }}
               key: postgres-password
         - name: SENTRY_POSTGRES_HOST
-          value: {{ template "postgresql.fullname" .}}
-        - name: SENTRY_POSTRGES_PORT
+          value: {{ template "postgresql.fullname" . }}
+        - name: SENTRY_POSTGRES_PORT
           value: "5432"
         - name: SENTRY_REDIS_PASSWORD
           valueFrom:
@@ -48,7 +60,7 @@ spec:
               name: {{ template "redis.fullname" . }}
               key: redis-password
         - name: SENTRY_REDIS_HOST
-          value: {{ template "redis.fullname" .}}
+          value: {{ template "redis.fullname" . }}
         - name: SENTRY_REDIS_PORT
           value: "6379"
         - name: SENTRY_EMAIL_HOST
@@ -62,5 +74,12 @@ spec:
             secretKeyRef:
               name: {{ template "fullname" . }}
               key: smtp-password
+        - name: SENTRY_EMAIL_USE_TLS
+          value: {{ .Values.email.use_tls | quote }}
+        - name: SENTRY_SERVER_EMAIL
+          value: {{ .Values.email.from_address | quote }}
+{{- if .Values.worker.env }}
+{{ toYaml .Values.worker.env | indent 8 }}
+{{- end }}
         resources:
 {{ toYaml .Values.worker.resources | indent 12 }}

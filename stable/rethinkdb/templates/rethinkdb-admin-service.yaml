@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ template "fullname" . }}-admin"
+  name: "{{ template "rethinkdb.fullname" . }}-admin"
   labels:
-    app: "{{ template "name" . }}-admin"
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    app: "{{ template "rethinkdb.name" . }}-admin"
+    chart: {{ template "rethinkdb.chart" . }}
     heritage: {{ .Release.Service | quote }}
     release: {{ .Release.Name | quote }}
 spec:
@@ -13,5 +13,5 @@ spec:
     - port: {{ .Values.ports.admin }}
       targetPort: admin
   selector:
-    app: "{{ template "name" . }}-proxy"
+    app: "{{ template "rethinkdb.name" . }}-proxy"
     release: {{ .Release.Name | quote }}

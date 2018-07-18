@@ -1,3 +1,10 @@
+# Deprecated
+
+This chart has been deprecated.
+
+See the chart in `stable/dask` instead.
+
+
 # Dask Distributed Helm Chart
 
 Dask Distributed allows distributed computation in Python the chart also includes a single user Jupyter Notebook.
@@ -18,12 +25,12 @@ This chart will do the following:
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm install --name my-release stable/dask
+$ helm install --name my-release stable/dask-distributed
 ```
 
 ## Configuration
 
-The following tables lists the configurable parameters of the Dask chart and their default values.
+The following tables list the configurable parameters of the Dask chart and their default values.
 
 ### Dask scheduler
 
