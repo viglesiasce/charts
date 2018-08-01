@@ -38,6 +38,7 @@ The following tables list the configurable parameters of the Jenkins chart and t
 | `Master.Component`                | k8s selector key                     | `jenkins-master`                                                             |
 | `Master.UseSecurity`              | Use basic security                   | `true`                                                                       |
 | `Master.AdminUser`                | Admin username (and password) created as a secret if useSecurity is true | `admin`                                  |
+| `Master.JenkinsAdminEmail`        | Email address for the administrator of the Jenkins instance | Not set                                               |
 | `Master.resources`                | Resources allocation (Requests and Limits) | `{requests: {cpu: 50m, memory: 256Mi}, limits: {cpu: 2000m, memory: 2048Mi}}`|
 | `Master.InitContainerEnv`         | Environment variables for Init Container                                 | Not set                                  |
 | `Master.ContainerEnv`             | Environment variables for Jenkins Container                              | Not set                                  |
@@ -52,17 +53,20 @@ The following tables list the configurable parameters of the Jenkins chart and t
 | `Master.HealthProbesLivenessTimeout`      | Set the timeout for the liveness probe | `120`                                                       |
 | `Master.HealthProbesReadinessTimeout` | Set the timeout for the readiness probe | `60`                                                       |
 | `Master.HealthProbeLivenessFailureThreshold` | Set the failure threshold for the liveness probe | `12`                                                       |
-| `Master.ContainerPort`            | Master listening port                | `8080`                                                                       |
 | `Master.SlaveListenerPort`        | Listening port for agents            | `50000`                                                                      |
-| `Master.DisabledAgentProtocols`   | Disabled agent protocols             | `JNLP-connect JNLP2-connect`                                                                      |
-| `Master.CSRF.DefaultCrumbIssuer.Enabled` | Enable the default CSRF Crumb issuer | `true`                                                                      |
-| `Master.CSRF.DefaultCrumbIssuer.ProxyCompatability` | Enable proxy compatibility | `true`                                                                      |
+| `Master.DisabledAgentProtocols`   | Disabled agent protocols             | `JNLP-connect JNLP2-connect`                                                 |
+| `Master.CSRF.DefaultCrumbIssuer.Enabled` | Enable the default CSRF Crumb issuer | `true`                                                                |
+| `Master.CSRF.DefaultCrumbIssuer.ProxyCompatability` | Enable proxy compatibility | `true`                                                               |
 | `Master.CLI`                      | Enable CLI over remoting             | `false`                                                                      |
 | `Master.LoadBalancerSourceRanges` | Allowed inbound IP addresses         | `0.0.0.0/0`                                                                  |
 | `Master.LoadBalancerIP`           | Optional fixed external IP           | Not set                                                                      |
 | `Master.JMXPort`                  | Open a port, for JMX stats           | Not set                                                                      |
 | `Master.CustomConfigMap`          | Use a custom ConfigMap               | `false`                                                                      |
+| `Master.Ingress.Enabled`          | Use an Ingress                       | `false`                                                                      |
+| `Master.Ingress.ApiVersion`       | Ingress API version                  | `extensions/v1beta1`                                                         |
 | `Master.Ingress.Annotations`      | Ingress annotations                  | `{}`                                                                         |
+| `Master.Ingress.Path`             | Ingress path                         | `/`                                                                          |
+| `Master.Ingress.Hosts`            | Ingress record(s)                    | Not set                                                                      |
 | `Master.Ingress.TLS`              | Ingress TLS configuration            | `[]`                                                                         |
 | `Master.InitScripts`              | List of Jenkins init scripts         | Not set                                                                      |
 | `Master.CredentialsXmlSecret`     | Kubernetes secret that contains a 'credentials.xml' file | Not set                                                  |
